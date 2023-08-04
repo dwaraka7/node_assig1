@@ -88,7 +88,7 @@ PUT http://localhost:3000/todos/2/
 Content-Type: application/json
 
 {
-    "dueDate": "2021-1-12" 
+    "dueDate": "2021-01-12" 
 }
 ###
 

@@ -247,6 +247,7 @@ app.put("/todos/:todoId/", async (req, res) => {
                 
                 id=${todoId};`;
       break;
+
     case priority !== undefined:
       arrayChk = ["HIGH", "MEDIUM", "LOW"].includes(priority);
       statusText = "Priority";
@@ -267,21 +268,21 @@ app.put("/todos/:todoId/", async (req, res) => {
       let formatDate = "";
 
       if (datChk) {
-        formatDate = format(new Date(year, months, day), "yyyy-MM-dd");
+        formatDate = format(new Date(year, month, day), "yyyy-MM-dd");
       }
 
       const datChkFormat = !isNaN(new Date(formatDate));
-
       arrayChk = datChkFormat;
-      statusText = "Due Date";
-      updateQuery = `
+      if (datChkFormat) {
+        statusText = "Due Date";
+        updateQuery = `
                 UPDATE
                     TODO
                 SET
-                    due_date='${formatDt}'
+                    due_date='${formatDate}'
                 WHERE
                     id=${todoId};`;
-
+      }
       break;
 
     default:
@@ -302,7 +303,7 @@ app.put("/todos/:todoId/", async (req, res) => {
     res.send(`${statusText} Updated`);
   } else if (dueDate !== undefined) {
     res.status(400);
-    res.send(`Invalid ${statusText}`);
+    res.send(`Invalid Due Date`);
   } else {
     res.status(400);
     res.send(`Invalid Todo ${statusText}`);
