@@ -1,0 +1,103 @@
+GET http://localhost:3000/todos/?status=TO%20DO
+
+###
+//SENOR 2
+GET http://localhost:3000/todos/?priority=HIGH1
+
+###
+//SENOR 3
+GET http://localhost:3000/todos/?priority=HIGH1&status=IN%20PROGRESS
+
+###
+//SENOR 4
+GET http://localhost:3000/todos/?search_q=rt
+
+###
+//SENOR 5
+GET http://localhost:3000/todos/?category=WORK&status=DONE
+
+###
+//SENOR 6
+GET http://localhost:3000/todos/?category=HOME
+
+###
+//SENOR 7
+GET http://localhost:3000/todos/?category=LEARNING&priority=HIGH
+
+###
+
+//API 2
+GET http://localhost:3000/todos/6/
+
+###
+
+//API 3
+GET http://localhost:3000/agenda/?date=2021-12-12
+
+###
+
+//API 4
+POST http://localhost:3000/todos/
+Content-Type: application/json
+
+{
+ "id": 7,
+ "todo": "Finalize event theme",
+ "priority": "HIGH",
+ "status": "TO DO",
+ "category": "WORK",
+ "dueDate": "2021-02-22"
+}
+###
+
+//API 5
+// Senr 1
+PUT http://localhost:3000/todos/6/
+Content-Type: application/json
+
+{
+    "status": "TO DO" 
+}
+###
+// Senr 2
+PUT http://localhost:3000/todos/2/
+Content-Type: application/json
+
+{
+     "priority":  "HIGH"
+}
+###
+// Senr 3
+PUT http://localhost:3000/todos/2
+Content-Type: application/json
+
+{
+    "todo": "Clean the garden"
+}
+###
+// Senr 4
+PUT http://localhost:3000/todos/2/
+Content-Type: application/json
+
+{
+    "category": "LEARNING"
+}
+###
+// Senr 5
+PUT http://localhost:3000/todos/2/
+Content-Type: application/json
+
+{
+    "dueDate": "2021-1-12" 
+}
+###
+
+//API 6
+DELETE http://localhost:3000/todos/7
+
+###
+
+//chk
+GET http://localhost:3000/db/
+
+###
